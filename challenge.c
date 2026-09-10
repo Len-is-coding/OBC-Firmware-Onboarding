@@ -42,17 +42,19 @@ int q2Array[Q2_ARRAY_SIZE];
 //          The function should return 0b0001001101100101
 //-------------------------------------------------------------------------
 uint16_t q3(uint8_t x, uint8_t y) {
-    uint8_t temp_x = x
+    uint8_t temp_x = x;
     int bitpos = 0;
     while(bitpos != 0) {
         bitpos++;
-        temp_x = temp_x >> 1
+        temp_x = temp_x >> 1;
     }    
     
-    uint8_t temp = ((x >> 0) ^ (x >> bitpos)) & 1);
+    uint8_t temp = (((x >> 0) ^ (x >> bitpos)) & 1);
     x = x ^ ((temp << 0) | (temp << bitpos));
 
-    return x + y
+    uint16_t combined = (x << 8) | y;
+
+    return combined;
 }
 
 //-------------------------------------------------------------------------
