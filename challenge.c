@@ -9,6 +9,7 @@
 // Include the challenge.h header file
 //-------------------------------------------------------------------------
 
+#include "challenge.h"
 
 //-------------------------------------------------------------------------
 // Question 1
@@ -17,6 +18,8 @@
 // of `q1B`should be initialized to 1.
 //-------------------------------------------------------------------------
 
+int q1A = 0;
+int q1B = 1;
 
 //-------------------------------------------------------------------------
 // Question 2
@@ -25,6 +28,8 @@
 // named `Q2_ARRAY_SIZE`.
 //-------------------------------------------------------------------------
 
+#define Q2_ARRAY_SIZE 10
+int q2Array[Q2_ARRAY_SIZE];
 
 //-------------------------------------------------------------------------
 // Question 3
@@ -37,7 +42,17 @@
 //          The function should return 0b0001001101100101
 //-------------------------------------------------------------------------
 uint16_t q3(uint8_t x, uint8_t y) {
+    uint8_t temp_x = x
+    int bitpos = 0;
+    while(bitpos != 0) {
+        bitpos++;
+        temp_x = temp_x >> 1
+    }    
+    
+    uint8_t temp = ((x >> 0) ^ (x >> bitpos)) & 1);
+    x = x ^ ((temp << 0) | (temp << bitpos));
 
+    return x + y
 }
 
 //-------------------------------------------------------------------------
@@ -50,7 +65,7 @@ uint16_t q3(uint8_t x, uint8_t y) {
 //
 // Note: The array contains 8-bit unsigned integers.
 //-------------------------------------------------------------------------
-int32_t q4(uint8_t * array, uint32_t arrayLength) {
+int32_t q4(int8_t * array, uint32_t arrayLength) {
     for (uint8_t i = 0; i <= arrayLength; i++) {
         int32_t sum = 0;
         sum += array[i];
