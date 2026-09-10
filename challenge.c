@@ -43,11 +43,14 @@ int q2Array[Q2_ARRAY_SIZE];
 //-------------------------------------------------------------------------
 uint16_t q3(uint8_t x, uint8_t y) {
     uint8_t temp_x = x;
-    int bitpos = 0;
-    while(bitpos != 0) {
-        bitpos++;
-        temp_x = temp_x >> 1;
-    }    
+    unsigned int bitpos = 0;
+    if (x != 0) {
+        while(temp_x != 0) {
+            temp_x = temp_x >> 1;
+            bitpos++;
+        } 
+        bitpos--;     
+    } 
     
     uint8_t temp = (((x >> 0) ^ (x >> bitpos)) & 1);
     x = x ^ ((temp << 0) | (temp << bitpos));
